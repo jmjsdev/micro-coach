@@ -8,7 +8,8 @@ import {
   LogOut,
   Sparkles,
   Menu,
-  X
+  X,
+  Brain
 } from 'lucide-react';
 import { useState } from 'react';
 import { useAuthStore } from '../store/authStore';
@@ -29,6 +30,7 @@ const Navbar = () => {
   const navItems = [
     { path: '/dashboard', icon: Home, label: 'Tableau de bord' },
     { path: '/habits', icon: Target, label: 'Habitudes' },
+    { path: '/ai', icon: Brain, label: 'Coach IA' },
     { path: '/achievements', icon: Trophy, label: 'Succès' },
     { path: '/profile', icon: User, label: 'Profil' },
   ];

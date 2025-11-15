@@ -9,6 +9,8 @@ import Habits from './pages/Habits';
 import NewHabit from './pages/NewHabit';
 import Profile from './pages/Profile';
 import Achievements from './pages/Achievements';
+import AIPage from './pages/AIPage';
+import AICoach from './components/AICoach';
 import { useAuthStore } from './store/authStore';
 
 function App() {
@@ -52,12 +54,16 @@ function App() {
           <Route path="/habits" element={<Habits />} />
           <Route path="/habits/new" element={<NewHabit />} />
           <Route path="/achievements" element={<Achievements />} />
+          <Route path="/ai" element={<AIPage />} />
           <Route path="/profile" element={<Profile />} />
         </Route>
 
         {/* Catch all */}
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
+
+      {/* AI Coach Floating Button */}
+      {isAuthenticated && <AICoach />}
     </BrowserRouter>
   );
 }

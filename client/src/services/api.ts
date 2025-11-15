@@ -99,4 +99,43 @@ export const userApi = {
     api.put<ApiResponse>('/users/settings', data),
 };
 
+// AI API
+export const aiApi = {
+  getMotivationalTip: () =>
+    api.get<ApiResponse<{ tip: string }>>('/ai/tip'),
+
+  analyzeHabits: () =>
+    api.get<ApiResponse<{
+      insights: string[];
+      recommendations: string[];
+      strengths: string[];
+      areasToImprove: string[];
+    }>>('/ai/analyze'),
+
+  suggestHabits: (goals: string) =>
+    api.post<ApiResponse<{ suggestions: any[] }>>('/ai/suggest', { goals }),
+
+  analyzeSentiment: (note: string) =>
+    api.post<ApiResponse<{
+      sentiment: 'positive' | 'neutral' | 'negative';
+      score: number;
+      keywords: string[];
+    }>>('/ai/sentiment', { note }),
+
+  chat: (messages: Array<{ role: string; content: string }>) =>
+    api.post<ApiResponse<{ message: string }>>('/ai/chat', { messages }),
+
+  generateActionPlan: (goal: string, timeframe: string) =>
+    api.post<ApiResponse<{
+      steps: Array<{ week: number; action: string; tips: string[] }>;
+      milestones: string[];
+    }>>('/ai/action-plan', { goal, timeframe }),
+
+  getWeeklySummary: () =>
+    api.get<ApiResponse<{
+      summary: string;
+      stats: any;
+    }>>('/ai/weekly-summary'),
+};
+
 export default api;

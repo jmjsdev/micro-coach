@@ -6,6 +6,7 @@ import habitRoutes from './routes/habit.routes';
 import checkInRoutes from './routes/checkin.routes';
 import achievementRoutes from './routes/achievement.routes';
 import userRoutes from './routes/user.routes';
+import aiRoutes from './routes/ai.routes';
 import { errorHandler } from './middleware/errorHandler';
 
 dotenv.config();
@@ -29,6 +30,7 @@ app.use('/api/habits', habitRoutes);
 app.use('/api/checkins', checkInRoutes);
 app.use('/api/achievements', achievementRoutes);
 app.use('/api/users', userRoutes);
+app.use('/api/ai', aiRoutes);
 
 // Health check
 app.get('/health', (req, res) => {
@@ -41,4 +43,5 @@ app.use(errorHandler);
 app.listen(PORT, () => {
   console.log(`🚀 Server running on http://localhost:${PORT}`);
   console.log(`📊 Prisma Studio: npx prisma studio`);
+  console.log(`🤖 AI Features: ${process.env.OPENAI_API_KEY ? '✅ Enabled' : '❌ Disabled (set OPENAI_API_KEY)'}`);
 });

@@ -25,6 +25,14 @@ micro-coach/
 - 📅 Calendrier visuel de suivi
 - 🏆 Système de points et niveaux
 - 🎖️ Badges et achievements
+- 🤖 **NOUVEAU : Coach IA propulsé par OpenAI GPT-4**
+  - 💬 Chatbot assistant 24/7
+  - 🧠 Analyse intelligente des habitudes
+  - 💡 Conseils motivationnels personnalisés
+  - 🎯 Suggestions d'habitudes par IA
+  - 📊 Résumés hebdomadaires intelligents
+  - 😊 Analyse de sentiment
+  - 📋 Générateur de plans d'action
 - 📱 PWA (Progressive Web App) - fonctionne offline
 - 🎨 Interface moderne avec Tailwind CSS
 - ✨ Animations avec Framer Motion
@@ -66,6 +74,7 @@ micro-coach/
 - **JWT** - Authentification
 - **Bcrypt** - Hashage de mots de passe
 - **Zod** - Validation des données
+- **OpenAI GPT-4** - Intelligence artificielle pour le coaching
 
 ## 📋 Prérequis
 
@@ -99,6 +108,11 @@ NODE_ENV="development"
 PORT=3001
 CLIENT_URL="http://localhost:5173"
 ADMIN_URL="http://localhost:5174"
+
+# OpenAI (optionnel mais recommandé pour les fonctionnalités IA)
+OPENAI_API_KEY="sk-votre-clé-api-openai"
+OPENAI_MODEL="gpt-4"
+OPENAI_MAX_TOKENS=1000
 ```
 
 ### 4. Initialiser la base de données
@@ -289,16 +303,45 @@ Les contributions sont les bienvenues ! N'hésitez pas à :
 | `npm run prisma:studio` | Ouvre Prisma Studio |
 | `npm run prisma:migrate` | Crée une migration |
 
+## 🤖 Fonctionnalités IA (OpenAI GPT-4)
+
+L'application intègre un **coach IA intelligent** propulsé par OpenAI GPT-4 :
+
+### ✅ Fonctionnalités Disponibles
+- 💬 **Chatbot Coach 24/7** - Assistant personnel toujours disponible
+- 🧠 **Analyse d'Habitudes** - Insights intelligents sur vos patterns
+- 💡 **Conseils Quotidiens** - Tips personnalisés chaque jour
+- 🎯 **Suggestions d'Habitudes** - IA génère des habitudes adaptées à vos objectifs
+- 📊 **Résumés Hebdomadaires** - Analyse motivante de votre semaine
+- 😊 **Analyse de Sentiment** - Comprend vos émotions dans les notes
+- 📋 **Plans d'Action** - Génère des plans structurés pour vos objectifs
+
+### 🚀 Comment Utiliser
+1. Obtenez une clé API OpenAI sur https://platform.openai.com/
+2. Ajoutez-la dans `server/.env` → `OPENAI_API_KEY="sk-..."`
+3. Redémarrez le serveur
+4. Accédez à la page **"Coach IA"** dans l'app
+5. Profitez du coaching intelligent !
+
+**📚 Documentation complète :** Voir [AI-FEATURES.md](./AI-FEATURES.md)
+
+**💰 Note :** L'utilisation de l'IA nécessite une clé API OpenAI (payante ~$0.50-1/mois par utilisateur actif). L'app fonctionne sans IA mais avec des fonctionnalités de base uniquement.
+
 ## 🎯 Roadmap
 
-- [ ] Système de notifications push
-- [ ] Mode social (amis, challenges)
-- [ ] Analytics avancés
-- [ ] Intégration paiement (Stripe)
-- [ ] Mode hors-ligne complet
-- [ ] Export de données (CSV/PDF)
-- [ ] Thèmes personnalisés
-- [ ] Multi-langue (i18n)
+- [x] 🤖 Coach IA avec OpenAI GPT-4
+- [x] 💬 Chatbot assistant intelligent
+- [x] 🧠 Analyse d'habitudes par IA
+- [x] 🎯 Suggestions personnalisées
+- [ ] 🔔 Système de notifications push
+- [ ] 👥 Mode social (amis, challenges)
+- [ ] 📈 Analytics prédictifs IA
+- [ ] 💳 Intégration paiement (Stripe)
+- [ ] 📴 Mode hors-ligne complet
+- [ ] 📊 Export de données (CSV/PDF)
+- [ ] 🎨 Thèmes personnalisés
+- [ ] 🌍 Multi-langue (i18n)
+- [ ] ⌚ Intégrations wearables
 
 ## 📄 Licence
 
